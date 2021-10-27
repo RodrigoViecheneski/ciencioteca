@@ -4,10 +4,10 @@
 
 require 'classes/area.class.php';
 $a = new Area();
-if(isset($_POST['nome']) && !empty($_POST['nome'])){
-	$nome = addslashes($_POST['nome']);
-
-	$a->addArea($nome);
+if(isset($_POST['nome_area']) && !empty($_POST['nome_area'])){
+	$nome_area = addslashes($_POST['nome_area']);
+    $descricao_area = addslashes($_POST['descricao_area']);
+	$a->addArea($nome_area, $descricao_area);
 
 }
 ?>
@@ -19,7 +19,9 @@ if(isset($_POST['nome']) && !empty($_POST['nome'])){
 
 		<div class="form-group">
 			<label for="nome">Nome:</label>
-			<input type="text" name="nome" id="nome" class="form-control" /><!--value="<?php echo $info['titulo']; ?>"-->
+			<input type="text" name="nome_area" id="nome_area" class="form-control" />
+            <label for="nome">Descrição Área:</label>
+			<input type="text" name="descricao_area" id="descricao_area" class="form-control" />
 		</div>
 
 		<input type="submit" value="Adicionar" class="btn btn-default" />

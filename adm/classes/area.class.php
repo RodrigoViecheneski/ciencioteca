@@ -2,16 +2,20 @@
 class Area {
 	private $id_area;
 	private $nome_area;
+	private $descricao_area;
 	private $con;
 
 	public function __construct(){
 		$this->con = new Conexao();
 	}
-	public function addArea($nome){
-		$existArea = $this->verificaArea($nome);
+	public function addArea($nome_area, $descricao_area){
+		$existArea = $this->verificaArea($nome_area);
 		if(count($existArea) == 0){
-			$sql = $this->con->conectar()->prepare("INSERT INTO area SET nome_area = :nome");
-			$sql->bindValue(":nome", $nome);
+			$this->nome_area = $nome_area;
+			$this->descricao_area = $descricao_area;
+			$sql = $this->con->conectar()->prepare("INSERT INTO area(nome_area, descricao_area) VALUES (:nome_area, :descricao_area)");
+			$sql->bindValue(":nome_area", $nome_area);
+			$sql->bindValue(":descricao_area", $descricao_area);
 			$sql->execute();
 			?>
 			<div class="alert alert-success">
@@ -40,7 +44,7 @@ class Area {
 		return $array;
 	}
 	public function listarArea(){
-		$sql = $this->con->conectar()->prepare("SELECT id_area, nome_area FROM area");
+		$sql = $this->con->conectar()->prepare("SELECT id_area, nome_area, descricao_area FROM area");
 		$sql->execute();
 		return $sql->fetchAll();
 	}
@@ -55,26 +59,29 @@ class Area {
 			return array();
 		}
 	}
-	public function editarArea($nome_area ,$id_area){
+	public function editarArea($nome_area , $descricao_area, $id_area){
 		$existArea = $this->verificaArea($nome_area);
-		if(count($existArea) == 0){
-			$sql = $this->con->conectar()->prepare("UPDATE area SET nome_area = :nome_area WHERE id_area = :id_area");
-			$sql->bindValue(':nome_area', $nome_area);
-			$sql->bindValue(':id_area', $id_area);
-			$sql->execute();
-			?>
-			<div class="alert alert-success">
-				Area alterada com sucesso!
-				<a href="gestao_area.php">Ver</a>
-			</div>
-		<?php
-		}else{
+		if(count($existArea) > 0 && $existArea['id_area'] != $id_area){
+			return FALSE;
 			?>
 			<div class="alert alert-danger">
 				Área não pode ser alterada. Área já cadastrada!
 				<a href="gestao_area.php">Ver</a>
 			</div>
 			<?php
+		}else{
+			$sql = $this->con->conectar()->prepare("UPDATE area SET nome_area = :nome_area, descricao_area = :descricao_area WHERE id_area = :id_area");
+			$sql->bindValue(':nome_area', $nome_area);
+			$sql->bindValue(':descricao_area', $descricao_area);
+			$sql->bindValue(':id_area', $id_area);
+			$sql->execute();
+			return TRUE;
+			?>
+			<div class="alert alert-success">
+				Area alterada com sucesso!
+				<a href="gestao_area.php">Ver</a>
+			</div>
+		<?php
 		}
 	}
 	public function excluirArea($id){

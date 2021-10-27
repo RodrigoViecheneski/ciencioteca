@@ -15,6 +15,7 @@ $area = new Area();
 		<tr>
 			<th scope="col">ID</th>
 			<th scope="col">NOME ÁREA</th>
+			<th scope="col">Descrição</th>
 			<th scope="col">AÇÕES</th>
 		</tr>
 	</thead>
@@ -26,6 +27,7 @@ $area = new Area();
 		<tr>
 			<td><?php echo $item['id_area']; ?></td>
 			<td><?php echo $item['nome_area']; ?></td>
+			<td><?php echo $item['descricao_area']; ?></td>
 			<td>
 				<a href="editarArea.php?id_area=<?php echo $item['id_area']; ?>" class="btn btn-default">EDITAR</a>
 				<a href="excluirArea.php?id_area=<?php echo $item['id_area'];?>" onclick="return confirm('Tem certeza que quer excluir área?')" class="btn btn-danger">EXCLUIR</a>
