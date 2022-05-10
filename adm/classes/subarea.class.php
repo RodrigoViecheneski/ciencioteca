@@ -61,33 +61,29 @@ class SubArea {
 			return array();
 		}
 	}
-	public function editarSubArea($nome_subarea , $descricao_subarea, $id_area){
-		$existArea = $this->verificaArea($nome_area);
-		if(count($existArea) == 0){
-			$sql = $this->con->conectar()->prepare("UPDATE subarea SET nome_subarea = :nome_subarea, descricao_subarea = :descricao_subarea, id_area = :id_area WHERE id_subarea = :id_subarea");
+	public function editarSubArea($id_area, $nome_subarea , $descricao_subarea, $id_subarea){
+		$existSubArea = $this->verificaSubArea($nome_subarea);
+		if(count($existSubArea) > 0 && $existSubArea['id_subarea'] != $id_subarea){
+			return FALSE;
+		}else{
+			try{
+			$sql = $this->con->conectar()->prepare("UPDATE subarea SET id_area = :id_area, nome_subarea = :nome_subarea, descricao_subarea = :descricao_subarea WHERE id_subarea = :id_subarea");
+			$sql->bindValue(':id_area', $id_area);
 			$sql->bindValue(':nome_subarea', $nome_subarea);
 			$sql->bindValue(':descricao_subarea', $descricao_subarea);
-			$sql->bindValue(':id_area', $id_area);
 			$sql->bindValue(':id_subarea', $id_subarea);
 			$sql->execute();
-			?>
-			<div class="alert alert-success">
-				Subárea alterada com sucesso!
-				<a href="gestao_area.php">Ver</a>
-			</div>
-		<?php
-		}else{
-			?>
-			<div class="alert alert-danger">
-				Subárea não pode ser alterada. Área já cadastrada!
-				<a href="gestao_area.php">Ver</a>
-			</div>
-			<?php
+			return TRUE;
+			}catch(PDOException $ex){
+				echo "ERRO: ".$ex->getMessage();
+			}
 		}
 	}
-	public function excluirArea($id){
-		$sql = $this->con->conectar()->prepare("DELETE FROM area WHERE id_area = :id");
-		$sql->bindValue(':id', $id);
+	public function excluirSubArea($id_subarea){
+		$sql = $this->con->conectar()->prepare("DELETE FROM subarea WHERE id_subarea = :id_subarea");
+		$sql->bindValue(':id_subarea', $id_subarea);
 		$sql->execute();
 	}
+	
+	
 }

@@ -2,24 +2,23 @@
 require 'pages/header.pages.php';
 require 'classes/subarea.class.php';
 $subarea = new SubArea();
-if(isset($_GET['id_subarea']) && !empty($_GET['id_subarea'])){
+if(!empty($_GET['id_subarea'])){
     $id_subarea = $_GET['id_subarea'];
     $info = $subarea->buscarSubArea($id_subarea);
     if(empty($info['nome_subarea'])){
-       // header("Location: gestao_sub_area.php");
-        //exit;
+        header("Location: gestao_sub_area.php");
+        exit;
     }
 }else{
     header("Location: gestao_sub_area.php");
     exit;
 }
+
 ?>
 <div class="container">
-	<h1>Editar Subárea</h1>
-
 	<form method="POST" action="editarSubAreaSubmit.php" >
-        
-
+    <h1>Editar Subárea</h1>
+    <input type="hidden" name="id_subarea" id="id_subarea" value="<?php echo $info['id_subarea'];?>">
 		<div class="form-group">
 			<label for="nome_subarea">Nome Subarea:</label>
 			<input type="text" name="nome_subarea" id="nome_subarea" class="form-control" value="<?php echo $info['nome_subarea']; ?>">
@@ -45,7 +44,7 @@ if(isset($_GET['id_subarea']) && !empty($_GET['id_subarea'])){
 		</div>
 		
 
-		<input type="submit" value="Adicionar" class="btn btn-default" />
+		<input type="submit" value="Alterar" class="btn btn-default" />
 	</form>
 
 </div>

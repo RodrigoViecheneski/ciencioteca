@@ -1,14 +1,17 @@
 <?php
-class Area {
+class Conteudo {
+	private $id_conteudo;
+	private $titulo;
+	private $descricao;
 	private $id_area;
-	private $nome_area;
-	private $descricao_area;
+	private $id_subarea;
+	private $id_usuario;
 	private $con;
 
 	public function __construct(){
 		$this->con = new Conexao();
 	}
-	public function addArea($nome_area, $descricao_area){
+	public function addConteudo($titulo, $descricao, $id_area, $id_subarea, $id_usuario){
 		$existArea = $this->verificaArea($nome_area);
 		if(count($existArea) == 0){
 			$this->nome_area = $nome_area;
@@ -32,7 +35,7 @@ class Area {
 			<?php
 		}
 	}
-	public function verificaArea($nome){
+	/*public function verificaArea($nome){
 		$sql = $this->con->conectar()->prepare("SELECT id_area FROM area WHERE nome_area = :nome");
 		$sql->bindValue(":nome", $nome);
 		$sql->execute();
@@ -90,4 +93,4 @@ class Area {
 		$sql->execute();
 	}
 
-}
+}*/

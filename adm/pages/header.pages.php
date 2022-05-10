@@ -18,7 +18,7 @@
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a href="./" class="navbar-brand">Home</a>
+				<a href="./" class="navbar-brand"><img src="assets/img/ciencioteca.png" alt="Logo site ciencioteca" width="30%"></a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
 				<?php if(isset($_SESSION['cLogin'])&& !empty($_SESSION['cLogin'])):?>

@@ -24,7 +24,7 @@ if(isset($_POST['nome_area']) && !empty($_POST['nome_area'])){
 			<input type="text" name="descricao_area" id="descricao_area" class="form-control" />
 		</div>
 
-		<input type="submit" value="Adicionar" class="btn btn-default" />
+		<input type="submit" value="Adicionar" class="btn btn-danger" />
 	</form>
 
 </div>
