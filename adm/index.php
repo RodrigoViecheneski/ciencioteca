@@ -1,8 +1,14 @@
 <?php 
+session_start();
 require 'pages/header.pages.php'; 
 require'classes/area.class.php';
-
+require 'classes/usuario.class.php';
 $area = new Area();
+
+if(!isset($_SESSION['cLogin'])){
+	header("Location: login.php");
+	exit;
+}
 
 ?>
 <div class="container-fluid">

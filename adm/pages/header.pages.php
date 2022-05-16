@@ -22,11 +22,7 @@
 			</div>
 			<ul class="nav navbar-nav navbar-right">
 				<?php if(isset($_SESSION['cLogin'])&& !empty($_SESSION['cLogin'])):?>
-					<!--li><a href="mostrar-usuarios.php">Gestão</a></li-->
-					<li><a href="minhas-publicacoes.php">Minhas Publicação</a></li>
-					<li><a href="gestao.php">Gestão</a></li>
-					<li><a href="add-publicacao.php">Adicionar Publicação</a></li>
-					<!--li><a href="minhaConta.php">Minha Conta</a></li-->
+					<li><a href="minhas_publicacoes.php">Minhas Publicações</a></li>
 					<li><a href="sair.php">Sair</a></li>
 				<?php else: ?>
 					<li><a href="cadastre-se.php">Cadastre-se</a></li>

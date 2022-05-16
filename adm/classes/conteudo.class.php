@@ -11,7 +11,7 @@ class Conteudo {
 	public function __construct(){
 		$this->con = new Conexao();
 	}
-	public function addConteudo($titulo, $descricao, $id_area, $id_subarea, $id_usuario){
+	public function addConteudo($titulo, $descricao){
 		$existArea = $this->verificaArea($nome_area);
 		if(count($existArea) == 0){
 			$this->nome_area = $nome_area;
