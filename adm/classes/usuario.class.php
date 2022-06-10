@@ -73,31 +73,27 @@ class Usuario {
             return array();
         }
     }
-    public function editarUsuario($email, $nome, $telefone, $permissoes){
-		$existEmail = $this->verificaEmail($email);
-		if(count($existEmail) > 0 && $existEmail['email'] != $email){
-			return FALSE;
-			?>
-			<div class="alert alert-danger">
-				Usuário não pode ser alterado. Usuário já cadastrado!
-				<a href="gestao_usuarios.php">Ver</a>
-			</div>
-			<?php
-		}else{
-			$sql = $this->con->conectar()->prepare("UPDATE usuarios SET nome = :nome, email = :email,  WHERE id_area = :id_area");
-			$sql->bindValue(':nome_area', $nome_area);
-			$sql->bindValue(':descricao_area', $descricao_area);
-			$sql->bindValue(':id_area', $id_area);
-			$sql->execute();
-			return TRUE;
-			?>
-			<div class="alert alert-success">
-				Area alterada com sucesso!
-				<a href="gestao_area.php">Ver</a>
-			</div>
-		<?php
-		}
-	}
+   public function editarUsuario($id, $nome, $email, $telefone, $permissoes){
+        $existEmail = $this->verificaEmail($email);
+        if(count($existEmail) > 0 && $existEmail['id'] != $id){
+            return FALSE;
+        }else{
+            $sql = $this->con->conectar()->prepare("UPDATE usuarios SET nome = :nome, email = :email, telefone = :telefone, permissoes = :permissoes WHERE id = :id");
+            $sql->bindValue(":id", $id);
+            $sql->bindValue(":nome", $nome);
+            $sql->bindValue(":email", $email);
+            $sql->bindValue(":telefone", $telefone);
+            $sql->bindValue(":permissoes", $permissoes);
+            $sql->execute();
+            return TRUE;
+        }
+    }
+    public function excluirUsuario($id){
+        $sql = $this->con->conectar()->prepare("DELETE FROM usuarios WHERE id = :id");
+        $sql->bindValue(":id", $id);
+        $sql->execute();
+    }
+
     public function login($email, $senha){
         $sql = $this->con->conectar()->prepare("SELECT id FROM usuarios WHERE email = :email AND senha = :senha");
         $sql->bindValue(":email", $email);
@@ -111,6 +107,34 @@ class Usuario {
          } else {
             return FALSE;
          }
+    }
+    public function buscaPermissaoSuper($arrayperm){
+        foreach($arrayperm as $item){
+            if($item == "SUPER"){
+                return TRUE;
+            }
+        }
+    }
+    public function buscaPermissaoAdd($arrayperm){
+        foreach($arrayperm as $item){
+            if($item == "ADD"){
+                return TRUE;
+            }
+        }
+    }
+    public function buscaPermissaoEdit($arrayperm){
+        foreach($arrayperm as $item){
+            if($item == "EDIT"){
+                return TRUE;
+            }
+        }
+    }
+    public function buscaPermissaoDel($arrayperm){
+        foreach($arrayperm as $item){
+            if($item == "DEL"){
+                return TRUE;
+            }
+        }
     }
 }
 

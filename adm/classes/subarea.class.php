@@ -84,6 +84,16 @@ class SubArea {
 		$sql->bindValue(':id_subarea', $id_subarea);
 		$sql->execute();
 	}
-	
+	public function verificaLinkArea($id_area){
+		$sql = $this->con->conectar()->prepare("SELECT id_subarea FROM subarea WHERE id_area = :id_area");
+		$sql->bindValue(':id_area', $id_area);
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			return TRUE;
+		}else{
+			return False;
+		}
+	}
 	
 }
