@@ -11,33 +11,41 @@ class Conteudo {
 	public function __construct(){
 		$this->con = new Conexao();
 	}
-	public function addConteudo($titulo, $descricao){
-		$existArea = $this->verificaArea($nome_area);
-		if(count($existArea) == 0){
-			$this->nome_area = $nome_area;
-			$this->descricao_area = $descricao_area;
-			$sql = $this->con->conectar()->prepare("INSERT INTO area(nome_area, descricao_area) VALUES (:nome_area, :descricao_area)");
-			$sql->bindValue(":nome_area", $nome_area);
-			$sql->bindValue(":descricao_area", $descricao_area);
+	public function addConteudo($titulo, $descricao, $id_area, $id_subarea){
+		$existConteudo = $this->verificaConteudo($titulo);
+		if(count($existConteudo) == 0){
+			$this->titulo = $titulo;
+			$this->descricao = $descricao;
+			$this->id_area = $id_area;
+			$this->id_subarea = $id_subarea;
+			//$this->id_usuario = $_SESSION['cLogin'];
+			$sql = $this->con->conectar()->prepare("INSERT INTO conteudo SET titulo = :titulo, descricao = :descricao, id_area = :id_area, id_subarea = :id_subarea, id_usuario = :id_usuario");			
+			$sql->bindValue(":titulo", $titulo);
+			$sql->bindValue(":descricao", $descricao);
+			$sql->bindValue(":id_area", $id_area);
+			$sql->bindValue(":id_subarea", $id_subarea);
+			$sql->bindValue(":id_usuario", $_SESSION['cLogin']);
 			$sql->execute();
+			print_r($sql);
+			exit;
 			?>
 			<div class="alert alert-success">
-				Area adicionada com sucesso!
-				<a href="gestao_area.php">Ver</a>
+				Conteúdo adicionada com sucesso!
+				<a href="gestao_conteudo.php">Ver</a>
 			</div>
 		<?php
 		}else{
 			?>
 			<div class="alert alert-danger">
-				Área já cadastrada!
-				<a href="gestao_area.php">Ver</a>
+				Conteúdo com este nome já cadastrado!
+				<a href="gestao_conteudo.php">Ver</a>
 			</div>
 			<?php
 		}
 	}
-	/*public function verificaArea($nome){
-		$sql = $this->con->conectar()->prepare("SELECT id_area FROM area WHERE nome_area = :nome");
-		$sql->bindValue(":nome", $nome);
+	public function verificaConteudo($titulo){
+		$sql = $this->con->conectar()->prepare("SELECT id_conteudo FROM conteudo WHERE titulo = :titulo");
+		$sql->bindValue(":titulo", $titulo);
 		$sql->execute();
 		if($sql->rowCount() > 0){
 			$array = $sql->fetch();
@@ -46,51 +54,6 @@ class Conteudo {
 		}
 		return $array;
 	}
-	public function listarArea(){
-		$sql = $this->con->conectar()->prepare("SELECT id_area, nome_area, descricao_area FROM area");
-		$sql->execute();
-		return $sql->fetchAll();
-	}
-	public function buscarArea($id){
-		$sql = $this->con->conectar()->prepare("SELECT * FROM area WHERE id_area = :id");
-		$sql->bindValue(':id', $id);
-		$sql->execute();
-
-		if($sql->rowCount() > 0){
-			return $sql->fetch();
-		}else{
-			return array();
-		}
-	}
-	public function editarArea($nome_area , $descricao_area, $id_area){
-		$existArea = $this->verificaArea($nome_area);
-		if(count($existArea) > 0 && $existArea['id_area'] != $id_area){
-			return FALSE;
-			?>
-			<div class="alert alert-danger">
-				Área não pode ser alterada. Área já cadastrada!
-				<a href="gestao_area.php">Ver</a>
-			</div>
-			<?php
-		}else{
-			$sql = $this->con->conectar()->prepare("UPDATE area SET nome_area = :nome_area, descricao_area = :descricao_area WHERE id_area = :id_area");
-			$sql->bindValue(':nome_area', $nome_area);
-			$sql->bindValue(':descricao_area', $descricao_area);
-			$sql->bindValue(':id_area', $id_area);
-			$sql->execute();
-			return TRUE;
-			?>
-			<div class="alert alert-success">
-				Area alterada com sucesso!
-				<a href="gestao_area.php">Ver</a>
-			</div>
-		<?php
-		}
-	}
-	public function excluirArea($id){
-		$sql = $this->con->conectar()->prepare("DELETE FROM area WHERE id_area = :id");
-		$sql->bindValue(':id', $id);
-		$sql->execute();
-	}
-
-}*/
+	
+}
+?>

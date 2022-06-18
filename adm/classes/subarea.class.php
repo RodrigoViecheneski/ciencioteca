@@ -95,5 +95,11 @@ class SubArea {
 			return False;
 		}
 	}
-	
+	public function buscarSubAreaLinkArea($id_area){
+		$sql = $this->con->conectar()->prepare("SELECT * FROM subarea WHERE id_area = :id_area");
+		$sql->bindValue(':id_area', $id_area);
+		$sql->execute();
+
+		return $sql;
+	}
 }

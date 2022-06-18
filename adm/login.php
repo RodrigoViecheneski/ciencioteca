@@ -1,6 +1,6 @@
 <?php 
 require 'pages/header.pages.php';
-session_start();
+//session_start();
 ?>
 <div class="container">
 	<h1>LOGIN</h1>
