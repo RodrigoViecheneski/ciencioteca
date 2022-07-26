@@ -1,5 +1,6 @@
 <?php
 // Fábrica de conexão (conection factory)
+session_start();
 class Conexao {
 	private $usuario;
 	private $senha;

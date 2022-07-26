@@ -59,6 +59,12 @@ class Area {
 			return array();
 		}
 	}
+	public function buscarAreaNome($id){
+		$sql = $this->con->conectar()->prepare("SELECT nome_area FROM area WHERE id_area = :id");
+		$sql->bindValue(':id', $id);
+		$sql->execute();
+		return $sql->fetch();
+	}
 	public function editarArea($nome_area , $descricao_area, $id_area){
 		$existArea = $this->verificaArea($nome_area);
 		if(count($existArea) > 0 && $existArea['id_area'] != $id_area){

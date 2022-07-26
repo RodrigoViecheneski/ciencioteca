@@ -1,6 +1,6 @@
 <?php require 'pages/header.pages.php';
 require 'classes/area.class.php';
-session_start();
+//session_start();
 $a = new Area();
 $id_area = $_POST['id_area'];
 $info = $a->buscarArea($id_area);

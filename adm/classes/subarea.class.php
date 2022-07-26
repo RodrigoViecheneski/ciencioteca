@@ -29,9 +29,6 @@ class SubArea {
 			return FALSE;
 		}
 	}
-
-
-
 	public function verificaSubArea($nome_subarea){
 		$sql = $this->con->conectar()->prepare("SELECT id_subarea FROM subarea WHERE nome_subarea = :nome_subarea");
 		$sql->bindValue(":nome_subarea", $nome_subarea);
@@ -60,6 +57,12 @@ class SubArea {
 		}else{
 			return array();
 		}
+	}
+	public function buscarSubareaNome($id){
+		$sql = $this->con->conectar()->prepare("SELECT nome_subarea FROM subarea WHERE id_subarea = :id_subarea");
+		$sql->bindValue(':id_subarea', $id);
+		$sql->execute();
+		return $sql->fetch();
 	}
 	public function editarSubArea($id_area, $nome_subarea , $descricao_subarea, $id_subarea){
 		$existSubArea = $this->verificaSubArea($nome_subarea);

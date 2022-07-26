@@ -26,7 +26,7 @@ class Conteudo {
 			$sql->bindValue(":id_subarea", $id_subarea);
 			$sql->bindValue(":id_usuario", $_SESSION['cLogin']);
 			$sql->execute();
-			print_r($sql);
+			//print_r($sql);
 			exit;
 			?>
 			<div class="alert alert-success">
@@ -53,6 +53,52 @@ class Conteudo {
 			$array = array();
 		}
 		return $array;
+	}
+
+	public function listarConteudo(){
+		$sql = $this->con->conectar()->prepare("SELECT * FROM conteudo");
+		$sql->execute();
+		return $sql->fetchAll();
+	}
+	public function buscarConteudo($id_conteudo){
+		$sql = $this->con->conectar()->prepare("SELECT * FROM conteudo WHERE id_conteudo = :id_conteudo");
+		$sql->bindValue(':id_conteudo', $id_conteudo);
+		$sql->execute();
+		if($sql->rowCount() > 0){
+			return $sql->fetch();
+		}else{
+			return array();
+		}
+	}	
+	public function editarConteudo($id_conteudo, $titulo, $descricao_conteudo, $id_area, $id_subarea, $id_usuario){
+		$this->id_conteudo = $id_conteudo;
+		$this->titulo = $titulo;
+		$this->descricao_conteudo;
+		$this->id_area = $id_area;
+		$this->id_subarea = $id_subarea;
+		$this->id_usuario = $id_usuario;
+		$sql = $this->con->conectar()->prepare("UPDATE conteudo SET titulo = :titulo,
+		 descricao = :descricao_conteudo, id_area = :id_area, id_subarea = :id_subarea, 
+		 id_usuario = :id_usuario WHERE id_conteudo = :id_conteudo"); 
+		$sql->bindValue(":id_conteudo", $id_conteudo); 
+		$sql->bindValue(":titulo", $titulo); 
+		$sql->bindValue(":descricao_conteudo", $descricao_conteudo); 
+		$sql->bindValue(":id_area", $id_area); 
+		$sql->bindValue(":id_subarea", $id_subarea); 
+		$sql->bindValue(":id_usuario", $id_usuario); 
+		$sql->execute();
+		?>
+		<div class="alert alert-success">
+			Conteúdo alterado com sucesso!
+			<a href="gestao_conteudo.php">Ver</a>
+		</div>
+		<?php
+
+	}
+	public function excluirConteudo($id){
+		$sql = $this->con->conectar()->prepare("DELETE FROM conteudo WHERE id_conteudo = :id");
+		$sql->bindValue(':id', $id);
+		$sql->execute();
 	}
 	
 }

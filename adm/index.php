@@ -1,12 +1,15 @@
 <?php 
-session_start();
+//session_start();
 require 'pages/header.pages.php'; 
 require'classes/area.class.php';
-require 'classes/usuario.class.php';
+//require 'classes/usuario.class.php';
 $area = new Area();
 
-if(!isset($_SESSION['cLogin'])){
-	header("Location: login.php");
+if(empty($_SESSION['cLogin'])){
+	?>
+	<script type="text/javascript">window.location.href="login.php";</script>
+	<?php
+	//header("Location: login.php");
 	exit;
 }
 
