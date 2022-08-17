@@ -1,5 +1,5 @@
 <?php require 'pages/header.pages.php';
-session_start();
+//session_start();
 if(empty($_SESSION['cLogin'])){
     ?>
     <script type="text/javascript">window.location.href="login.php";</script>

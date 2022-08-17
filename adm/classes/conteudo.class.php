@@ -27,7 +27,7 @@ class Conteudo {
 			$sql->bindValue(":id_usuario", $_SESSION['cLogin']);
 			$sql->execute();
 			//print_r($sql);
-			exit;
+			//exit;
 			?>
 			<div class="alert alert-success">
 				Conteúdo adicionada com sucesso!
