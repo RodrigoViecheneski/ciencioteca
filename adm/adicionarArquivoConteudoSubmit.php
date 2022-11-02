@@ -5,7 +5,10 @@ require 'classes/arquivo.class.php';
 require __DIR__.'/vendor/autoload.php';
 
 $arquivo = new Arquivo();
-
+/*echo "<pre>";
+print_r($_FILES);
+echo "<pre>";
+exit;*/
 if(isset($_FILES)){
     $uploads = Upload::createMultiUpload($_FILES['arquivo']);
 

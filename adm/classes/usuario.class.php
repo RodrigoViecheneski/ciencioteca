@@ -22,7 +22,7 @@ class Usuario {
             $hash = password_hash($this->senha, PASSWORD_DEFAULT);
             $this->telefone = $telefone;
             $this->permissoes = $permissoes;
-            $sql = $this->con->conectar()->prepare("INSERT INTO usuarios(nome, email, senha, telefone, permissoes)                       VALUES (:nome, :email, :senha, :telefone, :permissoes)");
+            $sql = $this->con->conectar()->prepare("INSERT INTO usuarios(nome, email, senha, telefone, permissoes)VALUES (:nome, :email, :senha, :telefone, :permissoes)");
             $sql->bindValue(":nome", $nome);
             $sql->bindValue(":email", $email);
             $sql->bindValue(":senha", $hash);

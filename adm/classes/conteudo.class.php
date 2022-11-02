@@ -60,6 +60,32 @@ class Conteudo {
 		$sql->execute();
 		return $sql->fetchAll();
 	}
+	public function getConteudos($id_conteudo){
+		$array = array();
+		$sql = $this->con->conectar()->prepare("SELECT 
+		*,
+		(select area.nome from area where area.id = conteudo.id_area) as areas,
+		(select subarea.nome from subarea where subarea.id = conteudo.id_subarea) as subareas,
+		(select usuarios.nome from usuarios where usuarios.id = conteudo.id_usuario) as usuario
+ 		FROM conteudo WHERE id_conteudo = :id_conteudo");
+		$sql->bindValue("id_conteudo", $id_conteudo);
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			$array = $sql->fetch();
+			//mostrar todos os arquivos cadastrados
+			$array['arquivo'] = array();
+			$sql = $this->con->conectar()->prepare("SELECT id_conteudoarquivos, url_conteudo, tipo_conteudo FROM conteudoarquivos WHERE id_conteudo = :id_conteudo");
+			$sql->bindValue("id_conteudo", $id_conteudo);
+			$sql->execute();
+
+			if($sql->rowCount() > 0){
+				$array['arquivo'] = $sql->fetchAll();
+			}
+		}
+		return $array;
+	}
+
 	public function buscarConteudo($id_conteudo){
 		$sql = $this->con->conectar()->prepare("SELECT * FROM conteudo WHERE id_conteudo = :id_conteudo");
 		$sql->bindValue(':id_conteudo', $id_conteudo);
