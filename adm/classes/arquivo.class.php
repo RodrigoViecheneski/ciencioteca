@@ -21,8 +21,44 @@ class Arquivo {
         ?>
         <div class="alert alert-success">
             Arquivo adicionado com sucesso!
-            <a href="gestao_arquivo_conteudo.php">VER</a>
+            <a href="gestao_conteudo.php">VER</a>
         </div>
         <?php	
+    }
+    public function conteudoArquivo($id_conteudo){
+        $array = array();
+        $this->id_conteudo = $id_conteudo;
+        $sql = $this->con->conectar()->prepare("SELECT 
+        *,
+        (select conteudoarquivos.url_conteudo from conteudoarquivos where conteudoarquivos.id_conteudo = conteudo = id_conteudo limit 1) as url 
+         FROM conteudo 
+         WHERE id_conteudo = :id_conteudo");
+         $sql->bindValue("id_conteudo", $id_conteudo);
+         $sql->execute();
+
+         if($sql->rowCount() > 0){
+            $array = $sql->fetchAll();
+         }
+         return $array;
+    }
+    public function mostraArquivo($id_conteudo){
+        $array = array();
+        $this->id_conteudo = $id_conteudo;
+        $sql = $this->con->conectar()->prepare("SELECT * FROM conteudoarquivos WHERE id_conteudo = :id_conteudo");
+        $sql->bindValue("id_conteudo", $id_conteudo);
+        $sql->execute();
+
+        if($sql->rowCount() > 0){
+            $array = $sql->fetch();
+            //mostrar arquivos cadastrados
+            $array['arquivos'] = array();
+            $sql = $this->con->conectar()->prepare("SELECT id_conteudoarquivos, url_conteudo FROM conteudoarquivos WHERE id_conteudo = :id_conteudo");
+            $sql->bindValue(":id_conteudo", $id_conteudo);
+            $sql->execute();
+            if($sql->rowCount() > 0){
+                $array['arquivos'] = $sql->fetchAll();
+            }
+        }
+        return $array;
     }
 }

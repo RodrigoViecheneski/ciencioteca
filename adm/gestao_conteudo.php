@@ -41,7 +41,7 @@ $subarea = new SubArea();
             <td>
                 <a href="editarConteudoArea.php?id_conteudo=<?php echo $item['id_conteudo'];?>" class="btn btn-default">EDITAR</a>
                 <a href="excluirConteudo.php?id_conteudo=<?php echo $item['id_conteudo'];?>" onclick="return confirm('Tem certeza que quer excluir conteúdo?')" class="btn btn-danger">EXCLUIR</a>
-                <a href="adicionarArquivoConteudo.php?id_conteudo=<?php echo $item['id_conteudo'];?>" class="btn btn-warning">ADICIONAR ARQUIVOS</a>
+                <a href="adicionarArquivoConteudo.php?id_conteudo=<?php echo $item['id_conteudo'];?>" class="btn btn-warning">GERIR ARQUIVOS</a>
             </td>
         </tr>
     </tbody>
