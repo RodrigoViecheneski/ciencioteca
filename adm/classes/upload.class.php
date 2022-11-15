@@ -34,8 +34,8 @@ class Upload {
 
     public function upload($dir, $overwrite = TRUE){
         if($this->erro != 0) return FALSE;
-
-        $path = $dir.'/'.$this->getBasename();
+        $path = 'filesUpload/'.$this->getBasename();
+        //$path = $dir.'/'.$this->getBasename();
         $this->path = $path;
 
         return move_uploaded_file($this->tmpName, $path);

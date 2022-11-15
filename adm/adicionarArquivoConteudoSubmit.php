@@ -14,7 +14,7 @@ if(isset($_FILES)){
 
     foreach($uploads as $obUpload){
         $obUpload->generateBasename();
-        $sucesso = $obUpload->upload(__DIR__.'/filesUpload', false);
+        $sucesso = $obUpload->upload('/filesUpload', false);
         if($sucesso){
             $id_conteudo = $_POST['id_conteudo'];
             $url_conteudo = $obUpload->getPath();

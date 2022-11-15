@@ -52,7 +52,7 @@ class Arquivo {
             $array = $sql->fetch();
             //mostrar arquivos cadastrados
             $array['arquivos'] = array();
-            $sql = $this->con->conectar()->prepare("SELECT id_conteudoarquivos, url_conteudo FROM conteudoarquivos WHERE id_conteudo = :id_conteudo");
+            $sql = $this->con->conectar()->prepare("SELECT id_conteudoarquivos, url_conteudo, tipo_conteudo FROM conteudoarquivos WHERE id_conteudo = :id_conteudo");
             $sql->bindValue(":id_conteudo", $id_conteudo);
             $sql->execute();
             if($sql->rowCount() > 0){
@@ -60,5 +60,6 @@ class Arquivo {
             }
         }
         return $array;
+        
     }
 }

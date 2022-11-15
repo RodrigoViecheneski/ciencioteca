@@ -11,9 +11,9 @@
     if(empty($_GET)){
         $conteudo = $c->listarConteudo();
     }
-    
     if(isset($_GET['id_conteudo']) && !empty($_GET['id_conteudo'])){
         $info = $arquivo->mostraArquivo($_GET['id_conteudo']);
+        
     }else{
         ?>
         <script type="text/javascript">window.location.href="gestao_conteudo.php";</script>
@@ -49,43 +49,34 @@
         </div>
         
         <div class="form-group">
-            <label for="file">Arquivos:</label>
-            <input type="file" name="arquivo[]" multiple><br />
-            
+            <label for="input-25">Arquivos:</label>
+            <div class="file">
+            <input id="input-25" type="file" name="arquivo[]" multiple><br />
+            </div>
             <input type="submit" value="Adicionar" class="btn btn-success" /><br /><br />
         <div class="panel panel-default">
-
-        
 				<div class="panel-heading">Conteúdo dos Arquivos</div>
 				<div class="file">
-                <?php if(empty($info['arquivos'])): ?>
-                    <p>Não temos arquivos cadastrados ainda!</p>
-                <?php else: ?>
 				<?php foreach($info['arquivos'] as $arq):?>
-				<div class="file-input theme-gly">
-                    <div class="file-preview">
-                        <button type="button" class="close fileinput-remove" aria-label="Close">
-                            <span aria-hidden="true">x</span></button>
-                        <div class="file-drop-zone clearfix">
-                            <?php if(strtolower($arq['tipo_conteudo']) == 'png' || strtolower($arq['tipo_conteudo']) == 'jpg'):?>
-                                <img src="<?php echo $arq['url_conteudo']; ?>" class="img-thumbnail" border="0" /><br/>
-                            <?php endif;?>
-                            <?php if(strtolower($arq['tipo_conteudo']) == 'pdf'):?>
-                                <object data="<?php echo $arq['url_conteudo']; ?>" type="application/pdf" width="600" height="780">
-                                <p>Seu navegador não tem um plugin para PDF</p>
-                                </object>
-                            <?php endif; ?>
-						<a href="excluir_arquivo.php?id=<?php echo $arq['id']; ?>" class="btn btn-default">Excluir Arquivo</a>
-                        </div>
-
-                    </div>
-                </div>
-                    
-					<!--<div class="foto_item">
-						
-					</div>-->
+                    <script>
+                    $(document).ready(function(){
+                        var url = 'http://localhost/ciencioteca/adm/<?php echo $arq['url_conteudo']; ?>';
+                        $("#input-25").fileinput({
+                            initialPreview: [url],
+                            initialPreviewAsData: true,
+                            initialPreviewConfig: [
+                                {caption: "<?php echo $arq['url_conteudo']; ?>", fileName: "", downloadUrl:<?php echo $arq['url_conteudo']; ?>, width: "120px", key: <?php echo $arq['id_conteudoarquivos']; ?>}
+                            ],
+                            overwriteInitial: true,
+                            showCaption: false,
+                            showRemove: false,
+                            showUpload: false,
+                            showBrowse: false,
+                            showClose: false,
+                        });
+                    });
+                    </script>  
 				<?php endforeach;?>
-                <?php endif; ?>
 				</div>
 		</div>
         
