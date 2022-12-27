@@ -4,6 +4,7 @@ class Arquivo {
     private $id_conteudo;
     private $url_conteudo;
     private $tipo_conteudo;
+    private $con;
 
     public function __construct(){
         $this->con = new Conexao();
@@ -61,5 +62,11 @@ class Arquivo {
         }
         return $array;
         
+    }
+    public function excluirArquivo($id_conteudoarquivo){
+        
+        $sql = $this->con->conectar()->prepare("DELETE FROM conteudoarquivos WHERE id_conteudoarquivos = :id_conteudoarquivos");
+        $sql->bindValue(":id_conteudoarquivos", $id_conteudoarquivo);
+        $sql->execute();
     }
 }

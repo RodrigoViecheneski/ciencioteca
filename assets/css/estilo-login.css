@@ -1,0 +1,10 @@
+.formlogin {
+	float: right;
+	margin-right: 700px;
+	margin-top: 200px;
+}
+
+.formlogin input{
+	background-color: transparent;
+	border-radius: 10px;
+}

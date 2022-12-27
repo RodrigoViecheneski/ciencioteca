@@ -1,0 +1,339 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    display: border-box;
+    font-family: sans-serif;
+}
+h1{
+    font-size: 22px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+h2{
+    font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+}
+p{
+    font-size: 20px;
+    color: white;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+a:hover{
+    opacity: 0.8;
+}
+input.button{
+    border: 0px;
+}
+input.button:hover{
+    opacity: 0.8;
+}
+nav{
+    height: 60px;
+    width: 100%;
+    display: grid;
+    grid-template-areas: 'A B';
+    background-color: #2F9E41;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+nav .column-a{
+    grid-area: A;
+}
+nav .column-a img{
+    height: 40px;
+    width: 245px;
+    margin-inline: 20px;
+    margin-block: 10px;
+}
+nav .column-b{
+    grid-area: B;
+    justify-self: right;
+    margin-block: 14px;
+    margin-inline: 25px;
+}
+nav .column-b .search{
+    height: 32px;
+    width: 400px;
+    background-color: white;
+    border-radius: 16px;
+}
+nav .column-b .search input.text{
+    height: 30px;
+    background-color: white;
+    color: #121212;
+    border: 0px;
+    border-radius: 16px;
+    padding-inline: 16px 170px;
+    font-size: 16px;
+}
+nav .column-b .search input.text:focus,
+nav .column-b .search input.text textarea:focus{
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+nav .column-b .search input.button{
+    height: 32px;
+    width: 32px;
+    background-image: url(/assets/search_FILL0_wght400_GRAD0_opsz48\ 1.svg);
+    background-color: #CD191E;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 16px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: 12px;
+    bottom: 2px;
+}
+header,
+footer{
+    height: 440px;
+    width: 85%;
+    display: grid;
+    grid-template-areas: 'A B';
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    margin-inline: auto;
+    margin-top: 110px;
+}
+header .column-a,
+footer .column-a{
+    height: 380px;
+    grid-area: A;
+    background-color: #73AA17;
+    border-radius: 10px;
+    border-bottom: 20px solid #CD191E;
+}
+header .column-a .image-a,
+footer .column-a .image-a{
+    height: 50px;
+    width: 300px;
+    background-image: url(/assets/ciencioteca-big.svg);
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 88px;
+    margin-bottom: 25px;
+    margin-inline: auto;
+}
+header .column-a .image-b,
+footer .column-a .image-b{
+    height: 142px;
+    width: 165px;
+    background-image: url(/assets/if.svg);
+    margin-inline: auto;
+}
+header .column-b,
+footer .column-b{
+    height: 400px;
+    grid-area: B;
+    margin-top: 100px;
+    margin-inline: auto;
+}
+header .column-b h1
+footer .column-b h1{
+    width: 450px;
+}
+footer{
+    height: 442px;
+    width: 85%;
+    padding-inline: 7.5%;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    margin-top: 50px;
+    background-color: #2F9E41;
+}
+footer .column-a{
+    border: 0;
+    background-color: #2F9E41;
+}
+footer .column-b{
+    height: 300px;
+    margin-top: 50px;
+    padding-top: 0;
+}
+footer .column-b div{
+    margin-bottom: 20px;
+}
+footer .column-b .link{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+footer .column-b .instagram .image{
+    background-image: url(/assets/instagram.svg);
+    height: 32px;
+    width: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+footer .column-b .facebook .image{
+    background-image: url(/assets/facebook.svg);
+    height: 32px;
+    width: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+footer .column-b .site .image{
+    background-image: url(/assets/site.svg);
+    height: 32px;
+    width: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+footer .column-b .email .image{
+    background-image: url(/assets/email.svg);
+    height: 32px;
+    width: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+footer .column-b .telefone .image{
+    background-image: url(/assets/telefone.svg);
+    height: 32px;
+    width: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+section{
+    width: 85%;
+    margin-inline: auto;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 22px;
+}
+section div{
+    width: 19.7%;
+    margin: 0px auto;
+    border-radius: 10px;
+    background-color: #73AA17;
+}
+section div .image{
+    width: 96%;
+    height: 253px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 5px solid #73AA17;
+    background-image: url(/assets/img-roteiro-eletricidade.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
+section div .text{
+    width: 100%;
+    padding-block: 20px;
+    position: relative;
+    bottom: 5px;
+}
+section div .text .nome,
+section div .text .materia,
+section div .text .detalhes{
+    padding-bottom: 20px;
+}
+section div .text p{
+    margin: 0 auto;
+    width: 85%;
+}
+section div .text input.button{
+    display: block;
+    margin-inline: auto;
+    font-size: 20px;
+    padding-block: 3px;
+    padding-inline: 10px;
+    border-radius: 40px;
+    background-color: #CD191E;
+    color: white;
+}
+
+@media screen and (max-width:1000px){
+    header{
+        display: block;
+        height: 40%;
+    }
+    header .column-a{
+        margin-top: 0%;
+        padding-top: 2%;
+        height: 30%;
+    }
+    header .column-a .image-a{
+        width: 97%;
+        margin-top: 0%;
+        padding-top: 2%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: #73AA17;
+    }
+    header .column-a .image-b{
+        padding-bottom: 2%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    header .column-b{
+        height: 280px;
+        margin-top: 0px;
+        padding-top: 0px;
+        display: flex;
+        align-items: center;
+    }
+    header .column-b h2{
+        margin-top: 3%;
+        padding-inline: 1%;
+    }
+    nav{
+        display: inline-block;
+        width: 100%;
+    }
+    nav .column-a{
+        width: 40px;
+    }
+    nav .column-b{
+        width: 50px;
+    }
+    nav .column-a img{
+        margin-left: 2px;
+    }
+    nav .column-b .search{
+        visibility: hidden;
+    }
+    nav .column-b .search input.button{
+        visibility: visible;
+        position: relative;
+        bottom: 65px;
+        left: -70px;
+    }
+    section{
+        display: block;
+        margin-block: 0;
+        padding-block: 0;
+    }
+    section div{
+        width: 94%;
+        margin-bottom: 20px;
+    }
+    footer{
+        display: block;
+        height: 720px;
+    }
+    footer .column-a{
+        padding: 0;
+        margin: 0;
+        height: 280px;
+        padding-top: 50px;
+    }
+    footer .column-a .image-a{
+        margin-top: 20px;
+    }
+    footer .column-b{
+        margin-top: 30px;
+    }
+    footer .column-b h2{
+        font-size: 18px;
+    }
+}

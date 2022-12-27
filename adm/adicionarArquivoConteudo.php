@@ -75,7 +75,7 @@
                                 <p>Seu navegador não tem um plugin para PDF</p>
                                 </object>
                             <?php endif; ?>
-						<a href="excluir_arquivo.php?id=<?php echo $arq['id']; ?>" class="btn btn-default">Excluir Arquivo</a>
+						<a href="excluirArquivo.php?id=<?php echo $arq['id_conteudoarquivos']; ?>" class="btn btn-default">Excluir Arquivo</a>
                         </div>
 
                     </div>

@@ -1,0 +1,219 @@
+body{
+	margin: 0 auto;
+	max-width: 1920px;
+	width: 100%;
+}
+.column{
+	width: 33.3%;
+	float: left;
+}
+.column-a img{
+	max-width: 55%;
+	width: 55%;
+}
+.column-b img{
+	width: 280%;
+	justify-self: center;
+	margin-top: 80px;
+	margin-left: -20px;
+}
+.column-c{
+	float: right;
+	margin-top: 130px;
+	margin-inline: 50px;
+}
+.column-c .search{
+	height: 32px;
+	width: 380px;
+	background-color: white;
+	border-radius: 16px;
+}
+.column-c .search input.text{
+	height: 30px;
+	background-color: white;
+	color: #121212;
+	border: 0px;
+	border-radius: 16px;
+	padding-inline: 16px 170px;
+	font-size: 16px;
+}
+.column-c .search input.text:focus,
+.column-c .search input.text textarea:focus{
+	box-shadow: 0 0 0 0;
+	outline: 0;
+}
+.column-c .search input.button{
+	height: 32px;
+	width: 32px;
+	background-image: url(../../assets/img/search_FILL0_wght400_GRAD0_opsz48\ 1.svg);
+	background-color: #CD191E;
+	background-repeat: no-repeat;
+	background-position: center;
+	border-radius: 16px;
+	border-style: none;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	left: 39px;
+	bottom: 28px;
+	float: right;
+}
+
+/*menu responsivo*/
+.topnav{
+	background-color: #333;
+	overflow: hidden;
+	margin-top: -23px;
+}
+.topnav a{
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	font-size: 17px;
+}
+.topnav a:hover{
+	background-color: #ddd;
+	color: black;
+}
+.topnav a.active{
+	background-color: #2f9e41;
+	color: white;
+}
+.topnav .icon{
+	display: none;
+}
+@media screen and (max-width: 600px){
+	.topnav a:not(:first-child) {display: none;}
+	.topnav a.icon {
+		float: right;
+		display: block;
+	}
+}
+@media screen and (max-width: 600px){
+	.topnav.responsive {position: relative;}
+	.topnav.responsive .icon{
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+	.topnav.responsive a {
+		float: none;
+		display: block;
+		text-align: left;
+	}
+}
+
+footer{
+	height: 440px;
+	width: 100%;
+	display: grid;
+	grid-template-areas: 'A B C';
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 25px;
+	margin-inline: auto;
+	margin-top: 110px;
+	background-color:#2f9e41;
+}
+footer .column-a .image-a{
+    height: 50px;
+    width: 310px;
+    background-image: url(../../assets/img/ciencioteca-big.svg);
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 88px;
+    margin-bottom: 25px;
+    margin-inline: auto;
+}
+footer .column-a .image-b{
+    height: 142px;
+    width: 165px;
+    background-image: url(../../assets/img/if.svg);
+    margin-inline: auto;
+}
+footer .column-b{
+	height: 300px;
+	margin-top: 50px;
+	padding-top: 0;
+	margin-left: 220px;
+}
+footer .column-b div{
+	margin-bottom: 20px;
+}
+footer .column-b .link{
+	display: flex;
+	gap: 20px;
+	align-items: center;
+}
+footer h2{
+	color: white;
+	font-size: 20px;
+    font-weight: normal;
+    margin: 0;
+    padding: 0;
+	
+}
+.column-b a{
+	text-decoration: none;
+}
+footer h2:hover{
+	text-decoration: none;
+	opacity: 0.8;
+}
+footer .column-b .instagram .image{
+	background-image: url(../../assets/img/instagram.svg);
+	height: 32px;
+	width: 32px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+footer .column-b .facebook .image{
+	background-image: url(../../assets/img/facebook.svg);
+	height: 32px;
+	width: 32px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+footer .column-b .site .image{
+	background-image: url(../../assets/img/site.svg);
+	height: 32px;
+	width: 32px;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+footer .column-b .email .image{
+    background-image: url(../../assets/img/email.svg);
+    height: 32px;
+    width: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+footer .column-b .telefone .image{
+    background-image: url(../../assets/img/telefone.svg);
+    height: 32px;
+    width: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+footer .column-c .image-c{
+	float: right;
+	margin-top: 50px;
+	margin-left: 70px;
+	width:270px;
+	height: 110px;
+	padding: 5px;
+	border-radius: 10px;
+	background-color: whitesmoke;
+}
+.direitos {
+	width: 100%;
+	margin-top: -25px;
+	background-color:#CD191E;
+	text-align: center;
+	color: White;
+	padding-bottom: 7px;
+}
