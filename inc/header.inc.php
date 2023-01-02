@@ -49,7 +49,7 @@
         </nav>
         <div class="topnav" id="myTopnav">
             <a href="#" class="active">Início</a>
-            <a href="#">Novidades</a>
+            <a href="eventos.php">Eventos</a>
             <a href="#">Contate-nos</a>
             <a href="#">Sobre</a>
             <a href="#">Ajuda</a>

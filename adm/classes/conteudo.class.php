@@ -126,6 +126,74 @@ class Conteudo {
 		$sql->bindValue(':id', $id);
 		$sql->execute();
 	}
+
+	//Interface
+	public function getTotalConteudo($filtro){
+		try{
+		$filtrostring = array('1=1');
+		if(!empty($filtro['area'])){
+			$filtrostring[] = 'conteudo.id_area = :id_area';
+		}
+ 		$sql = $this->con->conectar()->prepare("SELECT COUNT(*) as c FROM conteudo WHERE ".implode(' AND ', $filtrostring));
+		 if(!empty($filtro['area'])){
+			$sql->bindValue('id_area', $filtro['area']);
+		}
+		$sql->execute();
+		$row = $sql->fetch();
+		return $row['c'];
+		}catch(PDOException $ex){
+			echo "ERRO: ".$ex->getMessage(); 
+		}
+	}
 	
+	 public function getUltimosConteudos(){
+        $array = array();
+        $sql = $this->con->conectar()->prepare("SELECT *,
+		(select conteudoarquivos.url_conteudo from conteudoarquivos where conteudoarquivos.id_conteudo = conteudo.id_conteudo limit 1) as url,
+		(select area.nome_area from area where area.id_area = conteudo.id_area) as area
+		FROM conteudo ORDER BY id_conteudo DESC LIMIT 5");
+		$sql->execute();
+		if($sql->rowCount() > 0){
+			$array = $sql->fetchAll();
+		}
+		return $array;
+    }
+	public function getConteudo($id_conteudo){
+		$array = array();
+		$sql = $this->con->conectar()->prepare("SELECT *,
+		(select area.nome_area from area where area.id_area = conteudo.id_area) as area,
+		(select subarea.nome_subarea from subarea where subarea.id_subarea = conteudo.id_subarea) as subarea
+		FROM conteudo WHERE id_conteudo = :id_conteudo");
+		$sql->bindValue('id_conteudo', $id_conteudo);
+		$sql->execute();
+		if($sql->rowCount() > 0){
+			return $sql->fetch();
+		}else{
+			return $array();
+		}
+
+	}
+	public function getTotalConteudosFiltro($page, $perPage, $filtro){
+		$offset = ($page - 1) * $perPage;
+		$array = array();
+		//buscar utilizando o filtro predefinido
+		$filtrostring = array('1=1');
+		if(!empty($filtro['area'])){
+			$filtrostring[] = 'conteudo.id_area = :id_area';
+		}
+		$sql = $this->con->conectar()->prepare("SELECT *,
+		(select area.nome_area from area where area.id_area = conteudo.id_area) as area
+		FROM conteudo WHERE ".implode(' AND ', $filtrostring)." ORDER BY id_conteudo DESC LIMIT $offset, $perPage"); //ordena decrescente
+		if(!empty($filtro['area'])){
+			$sql->bindValue('id_area', $filtro['area']);
+		}
+
+		$sql->execute();
+
+		if($sql->rowCount() > 0){
+			$array = $sql->fetchAll();
+		}
+		return $array;
+	}
 }
 ?>

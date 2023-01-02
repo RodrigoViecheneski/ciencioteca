@@ -105,4 +105,18 @@ class SubArea {
 
 		return $sql;
 	}
+
+
+	//Interface
+	
+	public function getTotalSubarea(){
+		try{
+		$sql = $this->con->conectar()->prepare("SELECT COUNT(*) as s FROM subarea");
+		$sql->execute();
+		$row = $sql->fetch();
+		return $row['s'];
+		}catch(PDOException $ex){
+			echo "ERRO: ".$ex->getMessage(); 
+		}
+	}
 }

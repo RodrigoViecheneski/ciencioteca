@@ -217,3 +217,198 @@ footer .column-c .image-c{
 	color: White;
 	padding-bottom: 7px;
 }
+section{
+	height: 440px;
+    width: 85%;
+    display: grid;
+    grid-template-areas: 'A B C';
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 25px;
+    margin-inline: auto;
+    /*margin-top: 110px;*/
+}
+.info{
+	width: 33.3%;
+	float: left;
+}
+.info .column-a{
+	height: 380px;
+	width: 140%;
+	margin-top: 5%;
+	margin-left: 5%;
+	margin-bottom: 5%;
+	grid-area: A;
+	background-color: #73AA17;
+	border-radius: 10px;
+	border-bottom: 20px solid #CD191E;
+	padding: 80px;
+}
+.info .column-a .image-a{
+    height: 50px;
+    width: 310px;
+    background-image: url(../../assets/img/ciencioteca-big.svg);
+    background-color: white;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    margin-inline: auto;
+}
+.info .column-a .image-b{
+    height: 142px;
+    width: 165px;
+    background-image: url(../../assets/img/if.svg);
+    margin-inline: auto;
+}
+.info .column-b{
+	height: 400px;
+	width: 100%;
+	grid-area: B;
+	margin-top: 100px;
+	margin-inline: auto;
+}
+.info .column-b h3{
+	width: 550px;
+	margin-left: 240px;
+	text-align: justify;
+	padding: 10px;
+
+}
+.info .column-c{
+	height: 400px;
+	width: 590px;
+	grid-area: C;
+	margin-top: 5%;
+	margin-inline: auto;
+}
+.info .column-c h3{
+	width:  550px;
+}
+.info .column-c img{
+	width: 30%;
+	margin: -30px;
+	margin-bottom: 10px;
+}
+.info .column-c h1{
+	float: right;
+}
+.ultimos{
+	width: 97%;
+	margin-inline: auto;
+	margin-bottom: 20px;
+	display: flex;
+	gap: 22px;
+}
+.ultimos div{
+	width: 19.7%;
+	margin: 0px auto;
+	border-radius: 10px;
+	background-color: #73AA17;
+}
+.ultimos div .image{
+	width: 96%;
+	height: 253px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border: 5px solid #73AA17;
+	/*background-image: url(../../assets/img/img-roteiro-eletricidade.svg);*/
+}
+.ultimos div .image img{
+	max-width: 300px;
+	width: 250px;
+	height:240px;
+	margin-left: 38px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border: 5px solid #73AA17;
+}
+.ultimos div .text{
+	width: 100%;
+	padding-block: 20px;
+	position: relative;
+	bottom: 5px;
+}
+.ultimos div .text .conteudo,
+.ultimos div .text .area,
+.ultimos div .text .detalhes{
+	padding-bottom: 20px;
+}
+.ultimos div .text p{
+	margin: 0 auto;
+	width: 85%;
+}
+.ultimos div .text a.submit{
+	display: block;
+	width: 105px;
+	text-decoration: none;
+	margin-inline: auto;
+	font-size: 20px;
+	padding-block: 3px;
+	padding-inline: 10px;
+	border-radius: 40px;
+	background-color: #CD191E;
+	color: White;
+}
+.ultimos div .text a.submit:hover{
+	border: 1px solid white;
+	padding-block: 2px;
+} 
+.buscar{
+	width: 100%;
+}
+.buscar .column-a{
+	height: 270px;
+	width: 100%;
+	margin-top: 5%;
+	margin-left: 5%;
+	margin-bottom: 5%;
+	grid-area: A;
+	background-color: #73AA17;
+	border-radius: 10px;
+	/*border-bottom: 20px solid #CD191E;*/
+	padding-left: 30px;
+	border: 5px dashed #CD191E;
+}
+.buscar .column-a img {
+	width: 40%;
+	float:left;
+	margin-right: 30px;
+	margin-top: 30px;
+	background-color: white;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 3px 3px 3px black;
+} 
+.buscar .column-a h2{
+	margin-top: 37px;
+	color: white;
+	font-weight: bold;
+}
+.buscar .column-a label{
+	color: white;
+	font-size: 24px;
+}
+.buscar .column-a select {
+	width: 300px;
+	padding: 5px;
+	border-radius: 10px;
+}
+.buscar .column-a input {
+	float: right;
+	margin-right: 18px;
+}
+.buscar .jumbotron{
+	width: 196%;
+	margin: 20px;
+	margin-top: 35px;
+	border-radius: 10px;
+	padding-left: 15px;
+}
+.buscar .jumbotron h2 {
+	margin-top: 2px;
+	font-weight: bold;
+	margin-top: -12px;
+}
+.buscar .jumbotron table {
+	width: 99%;
+}

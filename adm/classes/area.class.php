@@ -96,4 +96,17 @@ class Area {
 		$sql->execute();
 	}
 
+
+	//Interface
+	public function getTotalArea(){
+		try{
+		$sql = $this->con->conectar()->prepare("SELECT COUNT(*) as c FROM area");
+		$sql->execute();
+		$row = $sql->fetch();
+		return $row['c'];
+		}catch(PDOException $ex){
+			echo "ERRO: ".$ex->getMessage(); 
+		}
+	}
+
 }
