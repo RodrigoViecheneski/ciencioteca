@@ -63,7 +63,7 @@
 </footer>
 <div class="direitos">
         <hr>
-        <h4>&copy; 2022 - Todos os direitos reservados.</h4>
+        <h4>Esta Ciencioteca é fruto de uma pesquisa subsidiada pelo CNPq, no âmbito do Programa Ciência na Escola (Chamada MCTIC/CNPq Nº 05/2019)</h4>
         </div>
 </body>
 

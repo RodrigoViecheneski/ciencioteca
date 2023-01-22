@@ -24,7 +24,6 @@ if(empty($_SESSION['cLogin'])){
 		<li><a href="gestao_sub_area.php">GESTÃO DE SUB-ÁREA</a></li>
 		<li><a href="gestao_usuarios.php">GESTÃO DE USUÁRIO</a></li>
 		<li><a href="gestao_conteudo.php">GESTÃO DE CONTEÚDOS</a></li>
-		<li><a href="gestao_arquivo_conteúdo.php">GESTÃO DE ARQUIVOS</a></li>
 		</ul>
 </div>
 

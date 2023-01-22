@@ -294,6 +294,7 @@ section{
 }
 .ultimos{
 	width: 97%;
+	height: 462px;
 	margin-inline: auto;
 	margin-bottom: 20px;
 	display: flex;
@@ -359,7 +360,7 @@ section{
 .buscar .column-a{
 	height: 270px;
 	width: 100%;
-	margin-top: 5%;
+	margin-top: 0%;
 	margin-left: 5%;
 	margin-bottom: 5%;
 	grid-area: A;
@@ -400,7 +401,7 @@ section{
 .buscar .jumbotron{
 	width: 196%;
 	margin: 20px;
-	margin-top: 35px;
+	margin-top: 5px;
 	border-radius: 10px;
 	padding-left: 15px;
 }

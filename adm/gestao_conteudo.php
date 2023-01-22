@@ -7,7 +7,7 @@ $conteudo = new Conteudo();
 $area = new Area();
 $subarea = new SubArea();
 ?>
-<div class="container">
+<div class="container-fluid">
   <div class="jumbotron">
     <h2>GESTÃO DE CONTEÚDO</h2>
   </div>
@@ -34,7 +34,7 @@ $subarea = new SubArea();
         <tr>
             <td><?php echo $item['id_conteudo'];?></td>
             <td><?php echo $item['titulo'];?></td>
-            <td><?php echo $item['descricao'];?></td>
+            <td style="width: 30%;"><?php echo $item['descricao'];?></td>
             <td><?php echo $nomeArea['nome_area'];?></td>
             <td><?php echo $nomeSubArea['nome_subarea'];?></td>
             <td><?php echo $item['id_usuario'];?></td>

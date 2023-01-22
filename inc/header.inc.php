@@ -51,7 +51,7 @@
             <a href="#" class="active">Início</a>
             <a href="eventos.php">Eventos</a>
             <a href="#">Contate-nos</a>
-            <a href="#">Sobre</a>
+            <a href="sobre.php">Sobre</a>
             <a href="#">Ajuda</a>
             <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                 <i class="fa fa-bars"></i>
