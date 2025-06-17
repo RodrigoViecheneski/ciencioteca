@@ -97,7 +97,7 @@ class Usuario {
     public function login($email, $senha){
         $sql = $this->con->conectar()->prepare("SELECT id FROM usuarios WHERE email = :email AND senha = :senha");
         $sql->bindValue(":email", $email);
-        $sql->bindValue(":senha", md5($senha));
+        $sql->bindValue(":senha", md5($senha));//devolver o md5
         $sql->execute();
 
         if ($sql->rowCount() > 0) {

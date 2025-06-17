@@ -12,7 +12,7 @@ class Conexao {
 		$this->servidor = "localhost";
 		$this->banco = "ciencioteca";		
 		$this->usuario = "root";
-		$this->senha = "root";
+		$this->senha = "";
 	}
 	public function conectar(){
 		try{/*Verifica se não há nenhum problema na conexao*/

@@ -65,9 +65,9 @@ $areas = $area->listarArea();
                 <p class="conteudo"><?php echo $cont['titulo']; ?></p>
                 <p>ÁREA:</p>
                 <p class="area"><?php echo $cont['area']; ?></p>
-                <!--<p>DETALHES:</p>
-                <p class="detalhes"><?php// echo $cont['descricao']; ?></p>
-                <!--<input class="submit" type="submit" name="acesse" value="ACESSE">-->
+                <p>DETALHES:</p>
+                <!--<p class="detalhes"><?php //echo $cont['descricao']; ?></p>
+                <input class="submit" type="submit" name="acesse" value="ACESSE">-->
                 <a href="mostraArquivosConteudo.php?id_conteudo=<?php echo $cont['id_conteudo']; ?>" class="submit">ACESSE</a>
             </div>
         </div>

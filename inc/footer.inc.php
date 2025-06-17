@@ -61,6 +61,9 @@
                 </div>
         </div>
 </footer>
+<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/script.js"></script>
 <div class="direitos">
         <hr>
         <h4>Esta Ciencioteca é fruto de uma pesquisa subsidiada pelo CNPq, no âmbito do Programa Ciência na Escola (Chamada MCTIC/CNPq Nº 05/2019)</h4>
